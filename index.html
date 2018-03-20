@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script src="js/main.js"></script>
+</head>
+
+<body  onload="document.getElementById('headerRoom').innerHTML = headerRoomSetter()">
+  <h1>Pokoje</h1>
+  <p id="headerRoom"></p>
+  <p id="output">Vítej v pokoji! Musíš uniknout. Co uděláš?</p>
+  <p id="dynamic">
+    <button id="dynamicButton" style="display:none;" onclick="document.getElementById('output').innerHTML = darkRoom.pickUp()">Vzít klíč</button>
+  </p>
+  <button onclick="document.getElementById('output').innerHTML = darkRoom.observe()">Rozhlédnout</button>
+  <button onclick="document.getElementById('output').innerHTML = darkRoom.interact()">Prozkoumat</button>
+  <button>Vzít</button>
+  <button>Použít</button>
+
+
+  <p>
+    <button onclick="document.getElementById('output').innerHTML = darkRoom.goLeft()">Jít vlevo</button>
+    <button onclick="document.getElementById('output').innerHTML = darkRoom.goAhead()">Jít vpřed</button>
+    <button onclick="document.getElementById('output').innerHTML = darkRoom.goRight()">Jít vpravo</button>
+  </p>
+  <p>
+    <button onclick="document.getElementById('output').innerHTML = darkRoom.goBack()">Na start</button>
+  </p>
+
+
+</body>
+</html>
