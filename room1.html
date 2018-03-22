@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script src="js/room1.js"></script>
+</head>
+
+<body  onload="document.getElementById('headerRoom').innerHTML = headerRoomSetter()">
+  <h1 id="headerRoom"></h1>
+
+  <div id="div_msgOutput">
+    <p id="output">
+      Vítej v prvním pokoji! Je tu šero. Na holém drátu se v lehkém průvanu kejklá stará, slabá žárovka, která od stropu sotva dosvítí na zem. Do rohů moc nevidíš, jakoby se v nich sem tam něco pohnulo. Koutkem oka zachytáváš rychle mizící páry svítících očí. Musíš pryč. Co uděláš?
+    </p>
+  </div>
+
+  <p id="dynamic">
+    <button id="dynamicButton" style="display:none;" onclick="document.getElementById('output').innerHTML = darkRoom.pickUp()">Vzít klíč</button>
+  </p>
+
+
+  <button onclick="document.getElementById('output').innerHTML = darkRoom.observe()">Rozhlédnout</button>
+  <button onclick="document.getElementById('output').innerHTML = darkRoom.interact()">Prozkoumat</button>
+  <button>Vzít</button>
+  <button>Použít</button>
+
+
+  <p>
+    <button onclick="document.getElementById('output').innerHTML = darkRoom.goLeft()">Jít vlevo</button>
+    <button onclick="document.getElementById('output').innerHTML = darkRoom.goAhead()">Jít vpřed</button>
+    <button onclick="document.getElementById('output').innerHTML = darkRoom.goRight()">Jít vpravo</button>
+  </p>
+
+  <p>
+    <button onclick="document.getElementById('output').innerHTML = darkRoom.goBack()">Na start</button>
+  </p>
+
+
+</body>
+</html>

@@ -1,10 +1,13 @@
 // TODO ﻿
-// tlacitko na klic ze vsech smeru
-// dynamicky text klici na komode
 
 var progress = 0;
 var inventory = 0;
 var pozice = 0;
+
+function headerRoomSetter() {
+  progress = 1;
+  return "Pokoj číslo " + progress + ", '" + darkRoom.name + "'.";
+};
 
 
 function displayDynButton(elmID) {
@@ -27,15 +30,15 @@ function Room(name, left, right, ahead, msgLeft, msgAhead, msgRight, msgBack) {
   this.observe = function() {
     // pozice = 0 - jsem na začátku
     if (pozice == 0) {
-      return "Před sebou: " + this.ahead + ", vlevo:  " + this.left + ", vpravo: " + this.right;
+      return "Před sebou máš: " + this.ahead + ", vlevo:  " + this.left + ", vpravo: " + this.right + ".";
     // pozice = 1 - jsem vlevo
     } else if (pozice == 1) {
-      return "Před sebou: " + this.right + ", vlevo: " + this.ahead;
+      return "Před sebou máš: " + this.right + ", vlevo: " + this.ahead + ".";
     // pozice = 2 - jsem vepředu
     } else if (pozice == 2) {
-      return "Vlevo: " + this.right + ", vpravo: " + this.left;
+      return "Vlevo máš: " + this.right + ", vpravo: " + this.left + ".";
     } else {
-      return "Před sebou: " + this.left + ", vpravo: " + this.ahead;
+      return "Před sebou máš: " + this.left + ", vpravo: " + this.ahead + ".";
     }
   };
   this.goBack = function () {
@@ -125,25 +128,8 @@ darkRoom.interact = function() {
   } else if (pozice == 3) {
     return "Venku je tma a prší.";
   } else {
-    return "No jsi v pokoji a potřebuješ ven. Kapiš to?!";
+    return "No jsi v dost špatně osvětleném pokoji a potřebuješ ven. Kapiš to?! Čím se vychází ven? Tak hybaj!";
   };
 };
 
-var lightRoom = new Room(
-  "Light Room",
-  "postel",
-  "záchod",
-  "prasklá zeď",
-  "Jsi u postele.",
-  "Jsi u záchodu.",
-  "Jsi u prasklé zdi.",
-  "Jsi zpět na začátku."
-);
-
 var klic = new Item("klíč");
-
-
-function headerRoomSetter() {
-  progress = 1;
-  return "Pokoj číslo " + progress + ", '" + darkRoom.name + "'.";
-};
