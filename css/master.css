@@ -1,0 +1,30 @@
+#r_roomName {
+  display: inline-block;
+
+  border-right-style: solid;
+  border-left-style: solid;
+  border-width: thin;
+  padding-left: 20px;
+  padding-right: 20px;
+
+}
+
+#r_msg_output {
+
+  border-bottom-style: solid;
+  border-width: thin;
+  padding-bottom: 10px;
+}
+
+.roomBody {
+  width: 50%;
+}
+
+.button {
+  width: 150px;
+  height: 40px;
+}
+
+.inventory {
+
+}

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/resources_DR.js"></script>
+    <link rel="stylesheet" href="css/master.css">
+  </head>
+  <body style="margin-left: 200px;">
+    <div class="" id="r_header">
+      <h1 id="r_roomName"></h1>
+    </div>
+
+    <div class="roomBody" id="r_body">
+
+      <p id="r_msg_output"></p>
+
+      <div class="controls" id="r_controls">
+
+        <div class="look">
+          <button class="button" name="button" onclick="WritePageOutput(whatIsAround,'r_msg_output')">Look around</button>
+          <button class="button" name="button" onclick="michael.explore()">Explore</button>
+        </div>
+
+        <div class="movement">
+          <p>Go to:</p>
+          <button class="button" id="btn_gLeft" onclick="michael.walk(1)"></button>
+          <button class="button" id="btn_gForwd" onclick="michael.walk(2)"></button>
+          <button class="button" id="btn_gRight" onclick="michael.walk(3)"></button>
+        </div>
+
+        <div class="inventory">
+          <p>Inventory:</p>
+          <button class="button" name="button" onclick="michael.takeItem()">Take Item</button>
+          <button class="button" name="button">Use item</button>
+        </div>
+
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      var darkRoom = new Room(
+        "The Dark Room",
+        1
+      );
+
+      var doorKey = new Item(
+        1,
+        v_doorKey[0],
+        v_doorKey[1],
+        false
+      );
+
+      var michael = new Pawn(
+        "Michael",
+        0
+      );
+      michael.walk = function(coord) {
+        michael.actPosition = coord;
+        if (coord == 1) {
+          WritePageOutput(leftSide.bDesc, "r_msg_output");
+        } else if (coord == 2) {
+          WritePageOutput(frontSide.bDesc, "r_msg_output");
+        } else {
+          WritePageOutput(rightSide.bDesc, "r_msg_output");
+        }
+        //console.log(michael.actPosition);
+      };
+      michael.explore = function() {
+        if (michael.actPosition == 1) {
+          WritePageOutput(leftSide.dDesc, "r_msg_output");
+        } else if (michael.actPosition == 2) {
+          WritePageOutput(frontSide.dDesc, "r_msg_output");
+        } else if (michael.actPosition == 3) {
+          WritePageOutput(rightSide.dDesc, "r_msg_output");
+        } else {
+          WritePageOutput("Move your ass 'cause something's gonna bite it!", "r_msg_output")
+        }
+      };
+      michael.takeItem = function() {
+        
+        console.log(michael.actPosition);
+        console.log(Side.itemID);
+      };
+
+      var leftSide = new Side(
+        v_leftSide[0],
+        1,
+        v_leftSide[1],
+        v_leftSide[2],
+        doorKey.iid
+      );
+      var frontSide = new Side(
+        v_frontSide[0],
+        2,
+        v_frontSide[1],
+        v_frontSide[2]
+      );
+      var rightSide = new Side(
+        v_rightSide[0],
+        3,
+        v_rightSide[1],
+        v_rightSide[2]
+      )
+
+
+
+      var whatIsAround = "You can go to a " + leftSide.name.toLowerCase() + ", or to a " + frontSide.name.toLowerCase() + ", or to a " + rightSide.name.toLowerCase() + ".";
+
+      WritePageOutput(v_initialMsg, "r_msg_output")
+      WritePageOutput(darkRoom.name, "r_roomName");
+      WritePageOutput(leftSide.name, "btn_gLeft");
+      WritePageOutput(frontSide.name, "btn_gForwd");
+      WritePageOutput(rightSide.name, "btn_gRight");
+
+
+    </script>
+
+  </body>
+</html>
