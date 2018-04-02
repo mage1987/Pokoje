@@ -6,8 +6,8 @@
     <script type="text/javascript" src="js/resources_DR.js"></script>
     <link rel="stylesheet" href="css/master.css">
   </head>
-  <body style="margin-left: 200px;">
-    <div class="" id="r_header">
+  <body style="margin-left: 5%  ;">
+    <div class="header" id="r_header">
       <h1 id="r_roomName"></h1>
     </div>
 
@@ -16,32 +16,43 @@
       <p id="r_msg_output"></p>
 
       <div class="controls" id="r_controls">
-
+        <p class="controls">These are your controls:</p>
         <div class="look">
           <button class="button" name="button" onclick="WritePageOutput(whatIsAround,'r_msg_output')">Look around</button>
-          <button class="button" name="button" onclick="michael.explore()">Explore</button>
+          <button class="button" name="button" onclick="actualUser.explore()">Explore</button>
+          <div class="speak">
+            <form method="post">
+              <input type="text" name="" placeholder="Say something...">
+              <input type="submit" name="" value="Say it">
+            </form>
+          </div>
         </div>
 
         <div class="movement">
-          <p>Go to:</p>
-          <button class="button" id="btn_gLeft" onclick="michael.walk(1)"></button>
-          <button class="button" id="btn_gForwd" onclick="michael.walk(2)"></button>
-          <button class="button" id="btn_gRight" onclick="michael.walk(3)"></button>
+          <p class="controls">Go to:</p>
+          <button class="button" id="btn_gLeft" onclick="actualUser.walk(1)"></button>
+          <button class="button" id="btn_gForwd" onclick="actualUser.walk(2)"></button>
+          <button class="button" id="btn_gRight" onclick="actualUser.walk(3)"></button>
         </div>
 
         <div class="inventory">
-          <p>Inventory:</p>
-          <button class="button" name="button" onclick="michael.takeItem()">Take Item</button>
+          <p class="controls">Inventory:</p>
+          <button class="button" name="button" onclick="actualUser.takeItem()">Take Item</button>
           <button class="button" name="button">Use item</button>
         </div>
 
       </div>
+
+    </div>
+
+    <div class="footer">
+
     </div>
 
     <script type="text/javascript">
-      var darkRoom = new Room(
-        "The Dark Room",
-        1
+      var actualRoom = new Room(
+        v_actualRoom[0],
+        v_actualRoom[1]
       );
 
       var doorKey = new Item(
@@ -51,12 +62,12 @@
         false
       );
 
-      var michael = new Pawn(
-        "Michael",
+      var actualUser = new Pawn(
+        v_actualUser[0],
         0
       );
-      michael.walk = function(coord) {
-        michael.actPosition = coord;
+      actualUser.walk = function(coord) {
+        actualUser.actPosition = coord;
         if (coord == 1) {
           WritePageOutput(leftSide.bDesc, "r_msg_output");
         } else if (coord == 2) {
@@ -64,51 +75,49 @@
         } else {
           WritePageOutput(rightSide.bDesc, "r_msg_output");
         }
-        //console.log(michael.actPosition);
       };
-      michael.explore = function() {
-        if (michael.actPosition == 1) {
+      actualUser.explore = function() {
+        if (actualUser.actPosition == 1) {
           WritePageOutput(leftSide.dDesc, "r_msg_output");
-        } else if (michael.actPosition == 2) {
+        } else if (actualUser.actPosition == 2) {
           WritePageOutput(frontSide.dDesc, "r_msg_output");
-        } else if (michael.actPosition == 3) {
+        } else if (actualUser.actPosition == 3) {
           WritePageOutput(rightSide.dDesc, "r_msg_output");
         } else {
           WritePageOutput("Move your ass 'cause something's gonna bite it!", "r_msg_output")
         }
       };
-      michael.takeItem = function() {
-        
-        console.log(michael.actPosition);
+      actualUser.takeItem = function() {
+        console.log(actualUser.actPosition);
         console.log(Side.itemID);
       };
 
       var leftSide = new Side(
-        v_leftSide[0],
         1,
+        v_leftSide[0],
         v_leftSide[1],
         v_leftSide[2],
         doorKey.iid
       );
       var frontSide = new Side(
-        v_frontSide[0],
         2,
+        v_frontSide[0],
         v_frontSide[1],
         v_frontSide[2]
       );
       var rightSide = new Side(
-        v_rightSide[0],
         3,
+        v_rightSide[0],
         v_rightSide[1],
         v_rightSide[2]
       )
 
 
 
-      var whatIsAround = "You can go to a " + leftSide.name.toLowerCase() + ", or to a " + frontSide.name.toLowerCase() + ", or to a " + rightSide.name.toLowerCase() + ".";
+      var whatIsAround = "You can go to a " + leftSide.name.toLowerCase() + ", to a " + frontSide.name.toLowerCase() + ", or to a " + rightSide.name.toLowerCase() + ".";
 
       WritePageOutput(v_initialMsg, "r_msg_output")
-      WritePageOutput(darkRoom.name, "r_roomName");
+      WritePageOutput(actualRoom.ident + ") " + actualRoom.name, "r_roomName");
       WritePageOutput(leftSide.name, "btn_gLeft");
       WritePageOutput(frontSide.name, "btn_gForwd");
       WritePageOutput(rightSide.name, "btn_gRight");

@@ -1,4 +1,13 @@
-var v_initialMsg = "Hello Michael. I was told, you are Michael. Is it your name? Nevermind. <br> You are in a badly lit room. An old, weak bulb is haning on a wire from the ceeling. The corners of the room are not lit at all and it seems something is creeping in the shadows there, watching you. You need to get out. What you gonna do, Michael?";
+var v_actualUser = [
+  "Michael"
+];
+
+var v_initialMsg = "<p>\"Hello " + v_actualUser[0] + ", wake up now. I was told, you are " + v_actualUser[0] + ". Is it your name? Nevermind. Do you wanna play? What is this that voice, you ask. Maybe you'll find out...\" <p> You woke up in a fairly large, badly lit room. An old, weak bulb is hanging on a wire from the ceeling. The corners of the room are not lit at all and it seems something creeps in the shadows there, watching you. The floor creaks with every step you take. <p>How you got here? No, you can't recall, no matter how much you try. Your head aches teribly, but you don't think you have been drinking. Or have you?<p>You better get out quickly. What you gonna do, Michael?";
+
+var v_actualRoom = [
+  "The Dark Room",
+  1
+];
 
 var v_leftSide = [
   "Cupboard",

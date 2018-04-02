@@ -24,15 +24,15 @@ function Pawn(name, actPosition) {
   };
 }
 
-function Room(name, ident, sides) {
+function Room(name, ident) {
   this.name = name;
   this.ident = ident;
 }
 
 //Definice stran
-function Side(name, coord, bDesc, dDesc, itemID) {
-  this.name = name;
+function Side(coord, name, bDesc, dDesc, itemID) {
   this.coord = coord;
+  this.name = name;
   this.bDesc = bDesc;
   this.dDesc = dDesc;
   this.itemID = itemID;
