@@ -1,5 +1,5 @@
 # The Rooms
-<h2>A programing learning project.</h2>
+<h3>A programing learning project.</h3>
 
 <p>
 What I want to achieve:
