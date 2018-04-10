@@ -78,18 +78,29 @@
       };
       actualUser.explore = function() {
         if (actualUser.actPosition == 1) {
+          actualUser.actPosition = 11;
           WritePageOutput(leftSide.dDesc, "r_msg_output");
         } else if (actualUser.actPosition == 2) {
+          actualUser.actPosition = 21;
           WritePageOutput(frontSide.dDesc, "r_msg_output");
         } else if (actualUser.actPosition == 3) {
+          actualUser.actPosition = 31;
           WritePageOutput(rightSide.dDesc, "r_msg_output");
         } else {
           WritePageOutput("Move your ass 'cause something's gonna bite it!", "r_msg_output")
         }
       };
       actualUser.takeItem = function() {
-        console.log(actualUser.actPosition);
-        console.log(Side.itemID);
+        if (actualUser.actPosition == 11) {
+          if (doorKey.is_owned == false) {
+            // sebrat klic -> is_owned bude true
+            // a nejaka hlaska
+          } else {
+            // hlaska, ze klic uz jsi sebral
+          }
+        } else {
+          // hlaska, ze nejsi na miste kde jde neco sebrat
+        }
       };
 
       var leftSide = new Side(
