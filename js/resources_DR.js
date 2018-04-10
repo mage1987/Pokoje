@@ -12,7 +12,7 @@ var v_actualRoom = [
 var v_leftSide = [
   "Cupboard",
   "You are by a cupboard.",
-  "You opened the cupboard a found an old, rusty key."
+  "You opened the cupboard. On the bottom you can barely see something resembling a key."
 ];
 
 var v_frontSide = [

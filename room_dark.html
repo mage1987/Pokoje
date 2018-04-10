@@ -20,12 +20,6 @@
         <div class="look">
           <button class="button" name="button" onclick="WritePageOutput(whatIsAround,'r_msg_output')">Look around</button>
           <button class="button" name="button" onclick="actualUser.explore()">Explore</button>
-          <div class="speak">
-            <form method="post">
-              <input type="text" name="" placeholder="Say something...">
-              <input type="submit" name="" value="Say it">
-            </form>
-          </div>
         </div>
 
         <div class="movement">
@@ -38,7 +32,12 @@
         <div class="inventory">
           <p class="controls">Inventory:</p>
           <button class="button" name="button" onclick="actualUser.takeItem()">Take Item</button>
-          <button class="button" name="button">Use item</button>
+          <button class="button" name="button" onclick="actualUser.useItem()">Use item</button>
+        </div>
+
+        <div class="hidden" id="exit">
+          <p class="controls">Go to the next room</p>
+          <a href="room_light.html"><button class="button" id="exit_button">.:EXIT:.</button></a>
         </div>
 
       </div>
@@ -93,13 +92,28 @@
       actualUser.takeItem = function() {
         if (actualUser.actPosition == 11) {
           if (doorKey.is_owned == false) {
-            // sebrat klic -> is_owned bude true
-            // a nejaka hlaska
+            doorKey.is_owned = true;
+            leftSide.dDesc = "There is nothing more of interest in the cupboard.";
+            WritePageOutput("You picked up an " + doorKey.name + ". " + doorKey.desc, "r_msg_output");
           } else {
-            // hlaska, ze klic uz jsi sebral
+            WritePageOutput("There is nothing more to take.", "r_msg_output");
           }
         } else {
-          // hlaska, ze nejsi na miste kde jde neco sebrat
+          WritePageOutput("There is nothing to take...", "r_msg_output");
+        }
+      };
+      actualUser.useItem = function() {
+        if (actualUser.actPosition == 2 || actualUser.actPosition == 21) {
+          if (doorKey.is_owned == true) {
+            // melo by se objevit tlacitko pro prechod do dalsiho pokoje
+            // klic by mel zmizet z invetare a nemelo by byt mozne ho znova sebrat
+            DisplayDynButton("exit", "hidden", "exit");
+            WritePageOutput("Surprisingly you managed to unlock the door.", "r_msg_output");
+          } else {
+            WritePageOutput("You need something to do this.", "r_msg_output");
+          }
+        } else {
+          WritePageOutput("No, not here.", "r_msg_output");
         }
       };
 

@@ -59,7 +59,10 @@ p.controls {
   color: black;
   border-style: dashed;
   border-width: thin;
-  boder
+}
+
+.hidden {
+  display: none;
 }
 
 /* Formatovani spcialnich bloku */

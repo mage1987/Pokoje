@@ -59,3 +59,8 @@ function WritePageOutput(msg_output, msg_dest) {
   this.msg_dest = msg_dest;
   document.getElementById(msg_dest).innerHTML = msg_output;
 }
+
+function DisplayDynButton(elmID, r_class, a_class) {
+  document.getElementById(elmID).classList.remove(r_class);
+  document.getElementById(elmID).classList.add(a_class);
+}
