@@ -1,5 +1,4 @@
 # The Rooms
-<h1>Go through da scary rooms</h1>
 <h2>A programing learning project.</h2>
 
 <p>
