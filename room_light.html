@@ -2,9 +2,80 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/resources_LR.js"></script>
+    <link rel="stylesheet" href="css/master.css">
   </head>
-  <body>
-    The second room.
+  <body style="margin-left: 5%  ;">
+    <div class="header" id="r_header">
+      <h1 id="r_roomName"></h1>
+    </div>
+
+    <div class="roomBody" id="r_body">
+
+      <p id="r_msg_output"></p>
+
+      <div class="controls" id="r_controls">
+        <p class="controls">The Command Line:</p>
+        <input class="cmd" type="text" value=""><br>
+        <button class="button exec">Execute!</button>
+
+        <div class="hidden" id="exit">
+          <p class="controls">Go to the next room</p>
+          <a href=""><button class="button" id="exit_button">.:EXIT:.</button></a>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="footer">
+
+    </div>
+
+    <script type="text/javascript">
+      var actualRoom = new Room(
+        v_actualRoom[0],
+        v_actualRoom[1]
+      );
+
+      // tady budou itemy, nebo hadanky
+
+      var actualUser = new Pawn(
+        v_actualUser[0],
+        0
+      );
+
+
+
+      var leftSide = new Side(
+        1,
+        v_leftSide[0],
+        v_leftSide[1],
+        v_leftSide[2],
+      );
+      var frontSide = new Side(
+        2,
+        v_frontSide[0],
+        v_frontSide[1],
+        v_frontSide[2]
+      );
+      var rightSide = new Side(
+        3,
+        v_rightSide[0],
+        v_rightSide[1],
+        v_rightSide[2]
+      )
+
+
+
+      var whatIsAround = "You can go to a " + leftSide.name.toLowerCase() + ", to a " + frontSide.name.toLowerCase() + ", or to a " + rightSide.name.toLowerCase() + ".";
+
+      WritePageOutput(v_initialMsg, "r_msg_output")
+      WritePageOutput(actualRoom.ident + ") " + actualRoom.name, "r_roomName");
+
+
+    </script>
+
   </body>
 </html>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <script type="text/javascript" src="js/main.js"></script>
-    <script type="text/javascript" src="js/resources_DR.js"></script>
+    <script type="text/javascript" src="@@@link na resourcy"></script>
     <link rel="stylesheet" href="css/master.css">
   </head>
   <body style="margin-left: 5%  ;">
@@ -90,29 +90,10 @@
         }
       };
       actualUser.takeItem = function() {
-        if (actualUser.actPosition == 11) {
-          if (doorKey.is_owned == false) {
-            doorKey.is_owned = true;
-            leftSide.dDesc = "There is nothing more of interest in the cupboard.";
-            WritePageOutput("You picked up an " + doorKey.name + ". " + doorKey.desc, "r_msg_output");
-          } else {
-            WritePageOutput("There is nothing more to take.", "r_msg_output");
-          }
-        } else {
-          WritePageOutput("There is nothing to take...", "r_msg_output");
-        }
+        // pro kazdy pokoj bude jinak
       };
       actualUser.useItem = function() {
-        if (actualUser.actPosition == 2 || actualUser.actPosition == 21) {
-          if (doorKey.is_owned == true) {
-            DisplayDynButton("exit", "hidden", "exit");
-            WritePageOutput("Surprisingly you managed to unlock the door.", "r_msg_output");
-          } else {
-            WritePageOutput("You need something to do this.", "r_msg_output");
-          }
-        } else {
-          WritePageOutput("No, not here.", "r_msg_output");
-        }
+        // pro kazdy pokoj bude jinak
       };
 
       var leftSide = new Side(

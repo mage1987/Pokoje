@@ -60,7 +60,13 @@ function WritePageOutput(msg_output, msg_dest) {
   document.getElementById(msg_dest).innerHTML = msg_output;
 }
 
+// 2) Zobrzeni elementu zmenou css classy
 function DisplayDynButton(elmID, r_class, a_class) {
   document.getElementById(elmID).classList.remove(r_class);
   document.getElementById(elmID).classList.add(a_class);
+}
+
+// 3) Cteni user inputu
+function ReadUserInput(elementName) {
+  var userText = document.getElementsByName(elementName).value;
 }

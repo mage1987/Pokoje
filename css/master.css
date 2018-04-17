@@ -42,6 +42,10 @@ p.controls {
   width: 50%;
 }
 
+.cmd {
+  width: 400px;
+}
+
 /* Formatovani tlacitek */
 .button {
   width: 130px;
@@ -63,6 +67,10 @@ p.controls {
 
 .hidden {
   display: none;
+}
+
+.exec {
+  margin-top: 5px;
 }
 
 /* Formatovani spcialnich bloku */
