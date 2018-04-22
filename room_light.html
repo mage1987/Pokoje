@@ -17,8 +17,8 @@
 
       <div class="controls" id="r_controls">
         <p class="controls">The Command Line:</p>
-        <input class="cmd" type="text" value=""><br>
-        <button class="button exec">Execute!</button>
+        <input class="cmd" type="text" id="r_cmd"><br>
+        <button class="button exec" onclick="TheCommandLine()">Execute!</button>
 
         <div class="hidden" id="exit">
           <p class="controls">Go to the next room</p>
@@ -46,30 +46,17 @@
         0
       );
 
+      function TheCommandLine() {
+        var playerCmd = document.getElementById("r_cmd").value;
+        if (playerCmd == "help") {
+          WritePageOutput(v_commands[1],"r_msg_output");
+        } else {
+          WritePageOutput(playerCmd + v_commands[0],"r_msg_output");
+        }
+        document.getElementById("r_cmd").value = null;
+      };
 
 
-      var leftSide = new Side(
-        1,
-        v_leftSide[0],
-        v_leftSide[1],
-        v_leftSide[2],
-      );
-      var frontSide = new Side(
-        2,
-        v_frontSide[0],
-        v_frontSide[1],
-        v_frontSide[2]
-      );
-      var rightSide = new Side(
-        3,
-        v_rightSide[0],
-        v_rightSide[1],
-        v_rightSide[2]
-      )
-
-
-
-      var whatIsAround = "You can go to a " + leftSide.name.toLowerCase() + ", to a " + frontSide.name.toLowerCase() + ", or to a " + rightSide.name.toLowerCase() + ".";
 
       WritePageOutput(v_initialMsg, "r_msg_output")
       WritePageOutput(actualRoom.ident + ") " + actualRoom.name, "r_roomName");

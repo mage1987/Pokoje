@@ -67,6 +67,9 @@ function DisplayDynButton(elmID, r_class, a_class) {
 }
 
 // 3) Cteni user inputu
-function ReadUserInput(elementName) {
-  var userText = document.getElementsByName(elementName).value;
-}
+/*function ReadPlayerCmd(inputElementId) {
+  var playerCmd = document.getElementById(inputElementId).value;
+  console.log(playerCmd);
+  document.getElementById(inputElementId).value = null;
+  return playerCmd;
+}*/
