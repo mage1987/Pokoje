@@ -18,11 +18,11 @@
       <div class="controls" id="r_controls">
         <p class="controls">The Command Line:</p>
         <input class="cmd" type="text" id="r_cmd"><br>
-        <button class="button exec" onclick="TheCommandLine()">Execute!</button>
+        <button class="button exec" id="btn_exe" onclick="TheCommandLine()">Execute!</button>
 
         <div class="hidden" id="exit">
           <p class="controls">Go to the next room</p>
-          <a href=""><button class="button" id="exit_button">.:EXIT:.</button></a>
+          <a href="url"><button class="button" id="exit_button">.:EXIT:.</button></a>
         </div>
 
       </div>
@@ -39,8 +39,6 @@
         v_actualRoom[1]
       );
 
-      // tady budou itemy, nebo hadanky
-
       var actualUser = new Pawn(
         v_actualUser[0],
         0
@@ -48,15 +46,28 @@
 
       function TheCommandLine() {
         var playerCmd = document.getElementById("r_cmd").value;
-        if (playerCmd == "help") {
+        if (playerCmd.toLowerCase() == "help") {
+          actualUser.actPosition = 1;
           WritePageOutput(v_commands[1],"r_msg_output");
+        } else if (actualUser.actPosition == 1 && playerCmd.toLowerCase() == "friend") {
+          actualUser.actPosition = 2;
+          WritePageOutput(v_commands[2],"r_msg_output");
+        } else if (actualUser.actPosition == 2 && playerCmd.toLowerCase() == "legion") {
+          actualUser.actPosition = 3;
+          WritePageOutput(v_commands[3],"r_msg_output");
+        } else if (actualUser.actPosition = 3 && playerCmd.toLowerCase() == "cthulhu") {
+          actualUser.actPosition = 4;
+          WritePageOutput(actualUser.actPosition,"r_msg_output");
+        } else if (actualUser.actPosition == 4 && playerCmd.toLowerCase() == "exit") {
+          DisplayDynButton("exit", "hidden", "exit");
+          DisplayDynButton("r_controls","controls","hidden");
+          WritePageOutput(v_commands[4],"r_msg_output");
         } else {
           WritePageOutput(playerCmd + v_commands[0],"r_msg_output");
         }
+
         document.getElementById("r_cmd").value = null;
       };
-
-
 
       WritePageOutput(v_initialMsg, "r_msg_output")
       WritePageOutput(actualRoom.ident + ") " + actualRoom.name, "r_roomName");
