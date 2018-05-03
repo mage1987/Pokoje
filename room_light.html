@@ -18,7 +18,7 @@
       <div class="controls" id="r_controls">
         <div class="dummy" id="r_commandLine">
           <p class="controls">The Command Line:</p>
-          <input class="cmd" type="text" id="r_cmd"><br>
+          <input class="cmd" type="text" id="r_cmd" onkeypress="searchKeyPress(event);"><br>
           <button class="button exec" id="btn_exe" onclick="TheCommandLine()">Execute!</button>
         </div>
         <div class="hidden" id="exit">
@@ -50,7 +50,7 @@
         if (playerCmd.toLowerCase() == "help") {
           actualUser.actPosition = 1;
           WritePageOutput(v_commands[1],"r_msg_output");
-        } else if (actualUser.actPosition == 1 && playerCmd.toLowerCase() == "friend") {
+        } else if (actualUser.actPosition == 1 && (playerCmd.toLowerCase() == "friend" || playerCmd.toLowerCase() == "mellon")) {
           actualUser.actPosition = 2;
           WritePageOutput(v_commands[2],"r_msg_output");
         } else if (actualUser.actPosition == 2 && playerCmd.toLowerCase() == "legion") {
@@ -62,14 +62,20 @@
           DisplayDynButton("exit", "hidden", "exit");
           DisplayDynButton("r_commandLine","dummy","hidden");
           WritePageOutput(v_commands[4],"r_msg_output");
-        } else {
-          WritePageOutput(playerCmd + v_commands[0],"r_msg_output");
         }
+        /*} else {
+          WritePageOutput(playerCmd + v_commands[0],"r_msg_output");
+        }*/
 
         document.getElementById("r_cmd").value = null;
       };
 
-      // zopakovani hadanky
+      function searchKeyPress(e) {
+        var x = e.which || e.keyCode;
+        if (x == 13) {
+          document.getElementById('btn_exe').click();
+        }
+      };
 
       WritePageOutput(v_initialMsg, "r_msg_output")
       WritePageOutput(actualRoom.ident + ") " + actualRoom.name, "r_roomName");
