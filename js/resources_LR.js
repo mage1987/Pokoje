@@ -12,7 +12,7 @@ var v_actualRoom = [
 var v_commands = [
   ": command not found",
   "Lookin'for help, eh? Let's play a game of riddles. The first one goes:<div style=\"text-align: center;\"><br><br>You must prove yourself worthy, friend<br>As the fellowship at The Mine<br>It's just one word that will take you to the end<br>If you know what's on my mind.</div>",
-  "Yes. \"Friend\" is the word that opened the Mines of Moria when Gandalf said it. Now, here goes another riddle:<div style=\"text-align: center;\"><br><br>There are many of us more than sixtyfour. Do you know us?<br>Can you guess our name?<br><br>V2UgYXJlIHRoZSBMZWdpb24u</div>",
+  "Yes. \"Friend\", \"Mellon\" in Quenya, is the word that opened the Mines of Moria when Gandalf said it. Now, here goes another riddle:<div style=\"text-align: center;\"><br><br>There are many of us more than sixtyfour. Do you know us?<br>Can you guess our name?<br><br>V2UgYXJlIHRoZSBMZWdpb24u</div>",
   "You are good as hell. And I'm tired of making up riddles. So, here is the last one:<br>What is the name of the monster of monsters made by the prince of horror?<br>When you get it right, just exit The Command Line and you can leave. I'm bored... Fuck of!",
   "Bingo! You got it! The command line dissapeared and a big button with a EXIT label poped-up in front of you."
 ];

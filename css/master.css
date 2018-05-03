@@ -1,4 +1,8 @@
 /* Formatovani oddilu stranky */
+.dummy {
+  
+}
+
 .header {
 
 }
@@ -67,6 +71,10 @@ p.controls {
 
 .hidden {
   display: none;
+}
+
+.exit {
+  display: block;
 }
 
 .exec {
