@@ -55,9 +55,10 @@
           WritePageOutput(v_commands[2],"r_msg_output");
         } else if (actualUser.actPosition == 2 && playerCmd.toLowerCase() == "legion") {
           actualUser.actPosition = 3;
-          WritePageOutput(v_commands[3],"r_msg_output");
+          WritePageOutput(v_commands[3] + "!","r_msg_output");
         } else if (actualUser.actPosition == 3 && playerCmd.toLowerCase() == "cthulhu") {
           actualUser.actPosition = 4;
+          WritePageOutput(v_commands[3] + ".","r_msg_output");
         } else if (actualUser.actPosition == 4 && playerCmd.toLowerCase() == "exit") {
           DisplayDynButton("exit", "hidden", "exit");
           DisplayDynButton("r_commandLine","dummy","hidden");
