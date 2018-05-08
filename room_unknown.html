@@ -1,12 +1,59 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <div class="">
-      <p>void</p>
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="js/main.js"></script>
+  <script type="text/javascript" src="js/resources_UKN.js"></script>
+  <link rel="stylesheet" href="css/master.css">
+</head>
+<body style="margin-left: 5%  ;">
+  <div class="header" id="r_header">
+    <h1 id="r_roomName"></h1>
+  </div>
+
+  <div class="roomBody" id="r_body">
+
+    <p id="r_msg_output"></p>
+
+    <div class="controls" id="r_controls">
+      <div class="dummy">
+        <button class="button" type="button" style="background-color: red;">PLAY!!!</button>
+      </div>
+      <div class="hidden" id="exit">
+        <p class="controls">Go to the next room</p>
+        <a href="room_unknown.html"><button class="button" id="exit_button">.:EXIT:.</button></a>
+      </div>
+
     </div>
+
+  </div>
+
+  <div class="footer">
+    <div class="TKIL" style="font-size:5px;">
+      ...the cake is a lie!!! ...the cake is a lie!!! ...the cake is a lie!!! ...the cake is a lie!!!
+    </div>
+    ...the cake is a lie!!! ...the cake is a lie!!!<br>
+    ...the cake is a lie!!! ...the cake is a lie!!!<br>
+    ...the cake is a lie!!! ...the cake is a lie!!!<br>
+    <div class="TKIL" style="font-size: 20px;">
+      ...the cake is a lie!!!
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var actualRoom = new Room(
+      v_actualRoom[0],
+      v_actualRoom[1]
+    );
+
+    var actualUser = new Pawn(
+      v_actualUser[0],
+      0
+    );
+
+    WritePageOutput(v_initialMsg, "r_msg_output")
+    WritePageOutput(actualRoom.ident + ") " + actualRoom.name, "r_roomName");
+
+  </script>
   </body>
 </html>
