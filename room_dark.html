@@ -95,7 +95,7 @@
           if (doorKey.is_owned == false) {
             doorKey.is_owned = true;
             leftSide.dDesc = "There is nothing more of interest in the cupboard.";
-            WritePageOutput("You picked up an " + doorKey.name + ". " + doorKey.desc, "r_msg_output");
+            WritePageOutput("You picked up a key. " + doorKey.desc, "r_msg_output");
           } else {
             WritePageOutput("There is nothing more to take.", "r_msg_output");
           }

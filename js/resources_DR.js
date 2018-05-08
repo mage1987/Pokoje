@@ -24,7 +24,7 @@ function getCookie(cname) {
 function checkCookie() {
     var user=getCookie("username");
     if (user == "") {
-      user = prompt("Please enter your name:","");
+      user = prompt("Hello human, enter a name, if you don't wanna be called null:","");
         if (user != "" && user != null) {
             setCookie("username", user, 30);
         }
